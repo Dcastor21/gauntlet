@@ -40,7 +40,7 @@ class TestTask(Base):
     prompt: Mapped[str] = mapped_column(Text, nullable=False)
     expected_output: Mapped[str | None] = mapped_column(Text, nullable=True)
     context: Mapped[str | None] = mapped_column(Text, nullable=True)  # For RAG tasks
-    metadata: Mapped[dict | None] = mapped_column(JSONB, default=dict)
+    task_metadata: Mapped[dict | None] = mapped_column(JSONB, default=dict)
 
     # Relationships
     test_set = relationship("TestSet", back_populates="tasks")
