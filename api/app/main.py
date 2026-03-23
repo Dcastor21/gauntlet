@@ -1,11 +1,5 @@
 """
 Gauntlet API — Main FastAPI application.
-
-This is the entry point. It:
-1. Creates the FastAPI app with metadata for auto-generated docs.
-2. Registers CORS middleware (the Next.js frontend calls from a different origin).
-3. Includes all route modules.
-4. Provides the /api/v1/health endpoint required by the PRD for Render uptime monitoring.
 """
 
 from contextlib import asynccontextmanager
@@ -37,7 +31,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",           # Local Next.js dev
-        "https://gauntlet.solvexis.dev",   # Production
+        #"https://gauntlet.solvexis.dev",   # Production
         "https://*.vercel.app",            # Preview deployments
     ],
     allow_credentials=True,
