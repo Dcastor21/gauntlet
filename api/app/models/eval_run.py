@@ -32,7 +32,7 @@ class EvalRun(TimestampMixin, Base):
     completed_at: Mapped[datetime | None] = mapped_column(
         DateTime(timezone=True), nullable=True
     )
-    metadata: Mapped[dict | None] = mapped_column(JSONB, default=dict)
+    run_metadata: Mapped[dict | None] = mapped_column(JSONB, default=dict)
 
     # Relationships
     workspace = relationship("Workspace", back_populates="eval_runs")
